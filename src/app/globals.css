@@ -13,7 +13,7 @@
 }
 
 body{
-    border-color: var(--bg);
+    background-color: var(--bg);
     color: var(--text);
 }
 
@@ -23,7 +23,6 @@ a{
 }
 
 .container {
-    background-color: rebeccapurple;
     width: 1536px;
     margin: auto;
     padding: 0 50px;
