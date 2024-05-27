@@ -13,7 +13,7 @@ const Contactpage = () => {
                     <input type="text" placeholder="Email address" />
                     <input type="text" placeholder="Phone Number (Optional)" />
                     <textarea name="" id="" col="30" rows="10" placeholder="Message"></textarea>
-                <button>Send</button>
+                <button className={styles.button}>Send</button>
                 </form>
             </div>
         </div>

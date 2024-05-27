@@ -33,6 +33,17 @@
     outline: none;
     background-color: var(--bgSoft);
     color: var(--text);
+    font-size: 15px;
+}
+
+.button {
+    height: 40px;
+    border: none;
+    background-color: var(--btn);
+    border-radius: 5px;
+    color: var(--text);
+    outline: none;
+    font-size: 18px;
 }
 
 
