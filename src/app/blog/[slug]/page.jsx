@@ -1,11 +1,13 @@
 import Image from "next/image";
 import styles from "./singlePost.module.css"
+import { getPost } from "@/components/lib/data";
 
-const SinglePostPage = () => {
+const SinglePostPage = async ({slug}) => {
+  const post = await getPost(slug);
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <Image className={styles.img} alt="" fill src="/about.png"/>
+        <Image className={styles.img} alt="" fill src={post.img}/>
       </div>
       <div className={styles.textContainer}>
         <h1 className={styles.title}>Title</h1>
