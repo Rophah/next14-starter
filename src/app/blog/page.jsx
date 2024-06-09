@@ -5,15 +5,28 @@ import { getPosts } from "@/components/lib/data";
 export const metadata = {
   title: {
     default:"Next App 14 Blog page",
-    template: "%S | Next.js 14" },
+    template: "%s | Next.js 14" },
   description: 'Blog main page testing ',
 }
 
-const BlogPage =async ({params}) => {
+//FETCH DATA WITH AN API
+const getData = async () =>{
+  const res = await fetch("http:localhost:3000/api/blog", {next:{revalidate:3600}});
 
-  console.log(params);
+  if(!res.ok){
+    throw new Error("Something went wrong")
+  } 
 
-  const posts = await getPosts();
+  return res.json();
+};
+
+const BlogPage =async () => {
+
+    const posts = await getData();
+
+  //FETCH DATA WITHOUT AN API
+
+  // const posts = await getPosts();
   console.log(posts);
   return (
     <div className={styles.container}>
