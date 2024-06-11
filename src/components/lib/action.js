@@ -1,6 +1,7 @@
 "use server"
-import { Post } from "./models";
+import { Post, User } from "./models";
 import { connectToDb } from "./utils";
+import { signIn, signOut } from "@/components/lib/auth";
 
 export const addPost = async (formData) => {
     "use server"
@@ -44,6 +45,41 @@ export const deletePost = async (formData)=> {
     }catch(err){
         console.log(err);
         return{ error: "Something went wrong"}
+    }
+}
+
+export const handleGithubLogin = async ()=> {
+        "use server"
+        await signIn("github");
+    }
+
+export const handleLogout = async ()=> {
+        "use server"
+        await signOut();
+    }
+
+export const register = async (formData)=> {
+    const { username, email, password, passwordRepeat }= Object.fromEntries(formData);
+
+    if (password !== passwordRepeat){
+        return "Passwords do not match";
+    }
+
+    try{
+        connectToDb();
+        const newUser = new User({
+            username,
+            email,
+            password,
+        });
+
+        await newUser.save();
+        console.log("Saved to db");
+    }catch(err){
+        console.log(err);
+        return {
+            error: "Something went wrong"
+        };
     }
 }
 
