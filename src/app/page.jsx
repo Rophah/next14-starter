@@ -4,7 +4,7 @@ import styles from "./home.module.css"
 const Home = () => {
   return (
   <div className={styles.container}>
-      <div className={styles. textContainer}>
+      <div className={styles.textContainer}>
         <h1 className={styles.title}>Creative Thoughts Agency</h1>
         <p className={styles.desc}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi cupiditate eum assumenda. Aliquam, nulla. Velit, voluptatum dolor nesciunt possimus tenetur, iusto neque ullam sequi molestiae, animi fuga quis exercitationem! Quisquam?</p>
         <div className={styles.buttons}>

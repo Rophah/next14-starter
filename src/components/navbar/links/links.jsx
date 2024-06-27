@@ -5,6 +5,7 @@ import NavLink from "../navLink/NavLink";
 import { useState } from "react";
 import { handleLogout } from "@/components/lib/action";
 import { auth } from "@/components/lib/auth";
+import Image from "next/image";
 
 const Links = ({session}) => {
 
@@ -53,7 +54,16 @@ const Links = ({session}) => {
                 ): 
                 ( <NavLink item={{title: "login", path:"/login"}}/>)}
             </div>
-            <button className={styles.menuButton} onClick={()=>setOpen(prev=>!prev)}>Menu</button>
+            {/* <button className={styles.menuButton} onClick={()=>setOpen(prev=>!prev)}>Menu</button> */}
+            <Image
+        className={styles.menuButton}
+        src="/menu.png"
+        alt=""
+        width={30}
+        height={30}
+        onClick={() => setOpen((prev) => !prev)}
+      />
+
             {
                 open && (
                     <div className={styles.mobileLinks}>
