@@ -32,7 +32,7 @@ export const authConfig = {
         session.user.id = token.id;
         session.user.isAdmin = token.isAdmin;
       }
-      return session;n
+      return session;
     },
     authorized({ auth, request }) {
       const user = auth?.user;
